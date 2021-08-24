@@ -22,10 +22,6 @@ module V1
     end
 
     def logged_in
-      current_user
-    end
-
-    def logged_in
       if @current_user
         render json: {
           logged_in: true,
