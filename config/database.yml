@@ -17,6 +17,9 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: <%= ENV['WLE_API_DATABASE_USERNAME'] %>
+  password: <%= ENV['WLE_API_DATABASE_PASSWORD'] %>
+  host: <%= ENV['WLE_API_DATABASE_HOST'] %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -82,5 +85,3 @@ test:
 production:
   <<: *default
   database: wle_api_production
-  username: wle_api
-  password: <%= ENV['WLE_API_DATABASE_PASSWORD'] %>
