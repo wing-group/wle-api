@@ -37,3 +37,6 @@ yarn-debug.log*
 
 # env variables
 config/local_env.yml
+
+# VSCode Settings
+.vscode/
