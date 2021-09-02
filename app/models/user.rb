@@ -6,9 +6,9 @@ class User < ApplicationRecord
 
   validates :display, allow_nil: true
 
-  enum access_level: [:standard, :admin, :founder]
+  enum access_level: { standard: 0, admin: 1, founder: 2 }
 
-  enum default_version: [:kjv, :nkjv, :esv, :niv, :nasb]
+  enum default_version: { esv: 0, kjv: 1, nkjv: 2, niv: 3, nasb: 4 }
 
   has_many :tags
   has_many :topics, through: :tags
