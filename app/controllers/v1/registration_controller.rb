@@ -6,10 +6,14 @@ module V1
 
         if user
           session[:user_id] = user.id
-          render json: {
-            status: :created,
-            user: user
-          }
+          render json: Response.new(
+            201,
+            message: "Registered",
+            body: {
+              logged_in: true,
+              user: user
+            }
+          ).as_json
         else
           render json: ErrorResponses.internal
         end

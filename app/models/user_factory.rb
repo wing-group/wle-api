@@ -7,8 +7,6 @@ class UserFactory
     def create!(opts = {})
       if UserFactory.valid_opts? opts
         User.create!(UserFactory.create_payload(opts))
-      else
-        nil
       end
     end
 

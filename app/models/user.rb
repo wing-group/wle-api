@@ -13,6 +13,6 @@ class User < ApplicationRecord
   has_many :verses, through: :tags
 
   def as_json(opts = {})
-    super.except('password_digest')
+    super.except('password_digest', 'created_at', 'updated_at')
   end
 end

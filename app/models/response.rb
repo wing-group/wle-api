@@ -9,10 +9,10 @@ class Response
 
   def as_json
     {
-      status: @status
+      status: status
     }.tap{ |json| 
-      json['body'] = @body unless @body.nil? 
-      json['message'] = @message unless @message.nil?
+      json['body'] = body unless body.nil? 
+      json['message'] = message unless message.nil?
     }
   end
 end

@@ -49,7 +49,7 @@ module V1
       render json: Response.new(
         200,
         message: "Logged out"
-      )
+      ).as_json
     end
   end
 end
