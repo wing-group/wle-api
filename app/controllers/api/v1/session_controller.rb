@@ -12,44 +12,38 @@ module Api::V1
         session[:user_id] = user.id
         response = Response.new(
           201,
-          message: "Logged in",
           body: {
             logged_in: true,
             user: user
           }
-        ).as_json
+        ).to_json
       end
 
-      render json: response || ErrorResponses.unauthorized
+      render response || ErrorResponses.unauthorized
     end
 
-    def logged_in
+    def current_user
       if @current_user
-        render json: Response.new(
+        render Response.new(
           200,
-          message: "Logged in",
           body: {
             logged_in: true,
             user: @current_user
           }
-        ).as_json
+        ).to_json
       else
-        render json: Response.new(
-          200,
-          message: "Not logged in",
-          body: {
-            logged_in: false
-          }
-        ).as_json
+        render Response.new(204).to_json
       end
     end
 
     def logout
       reset_session
-      render json: Response.new(
+      render Response.new(
         200,
-        message: "Logged out"
-      ).as_json
+        body: {
+          logged_in: false
+        }
+      ).to_json
     end
   end
 end

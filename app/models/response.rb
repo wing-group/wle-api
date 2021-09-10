@@ -7,12 +7,13 @@ class Response
     @message = opts['message'] || opts[:message]
   end
 
-  def as_json
+  def to_json
     {
+      json: {},
       status: status
     }.tap{ |json| 
-      json['body'] = body unless body.nil? 
-      json['message'] = message unless message.nil?
+      json[:json]['body'] = body unless body.nil? 
+      json[:json]['message'] = message unless message.nil?
     }
   end
 end

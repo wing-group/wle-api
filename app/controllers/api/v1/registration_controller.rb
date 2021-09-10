@@ -6,19 +6,18 @@ module Api::V1
 
         if user
           session[:user_id] = user.id
-          render json: Response.new(
+          render Response.new(
             201,
-            message: "Registered",
             body: {
               logged_in: true,
               user: user
             }
-          ).as_json
+          ).to_json
         else
-          render json: ErrorResponses.internal
+          render ErrorResponses.internal
         end
       else
-        render json: ErrorResponses.forbidden
+        render ErrorResponses.forbidden
       end
     end
   end
