@@ -1,4 +1,4 @@
-module V1
+module Api::V1
   class StaticController < ApplicationController
     def home
       render json: { status: "WLE API is up and running" }

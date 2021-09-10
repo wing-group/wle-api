@@ -1,6 +1,6 @@
-module V1
+module Api::V1
   class SessionController < ApplicationController
-    include V1::Concerns::CurrentUserConcern
+    include Api::V1::Concerns::CurrentUserConcern
 
     def create
       response = nil

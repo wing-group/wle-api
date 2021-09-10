@@ -1,4 +1,4 @@
-module V1
+module Api::V1
   class RegistrationController < ApplicationController
     def create
       if session[:user_id]
