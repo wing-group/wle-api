@@ -1,7 +1,7 @@
 module Api::V1
   class RegistrationController < ApplicationController
     def create
-      if session[:user_id]
+      if !session[:user_id]
         user = UserFactory.create! params['user']
 
         if user
